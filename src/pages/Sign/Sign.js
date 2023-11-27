@@ -17,14 +17,19 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [wrongPassword, setWrongPassword] = useState(false);
+  const [cargando, setCargando] = useState(false);
+
+
 
   const handleLogin = async (values) => {
+    setCargando(true)
     console.log(`handleLogin ${values}`);
     console.log(values);
     try {
+
       console.log(`try`);
       await signInWithEmailAndPassword(auth, values.email, values.password);
-
+      setCargando(false)
       console.log("Usuario creado con éxito!");
       navigate("/movies");
     } catch (error) {
@@ -33,6 +38,7 @@ const Login = () => {
       if (error.code === "auth/invalid-email") {
         setWrongPassword(true);
         console.log("auth/invalid-email");
+        setCargando(false)
       }
     }
   };
@@ -57,6 +63,7 @@ const Login = () => {
       } catch (error) {
         console.error("Error al crear el usuario", error.message);
       }
+      if (cargando) <h2>Cargando...</h2>
 }
   return (
     <Container>

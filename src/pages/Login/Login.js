@@ -21,10 +21,10 @@ const Login = () => {
     </CardContent>
     <CardActions>
       <Button  variant="contained" fullWidth size="small">
-      <Link to="/sign" relative="path">sign </Link>
+      <Link to="/sign" relative="path">Ingresar con una cuenta </Link>
       </Button>
       <Button   variant="contained" fullWidth size="small">
-      <Link to="/create" relative="path">create </Link>
+      <Link to="/create" relative="path">Crear una cuenta </Link>
       </Button>
     </CardActions>
   </Card>        
